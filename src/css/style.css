@@ -2,25 +2,13 @@
   --blue: #00d1ff;
   --red: #ff0000;
   --gambar1: linear-gradient(270.03deg, #4b6054 -18.57%, #333049 96.63%);
-  --gambar1-reverse: linear-gradient(270deg, #333049 41.81%, #4b6054 157.53%);
+  --gambar1Reverse: linear-gradient(270deg, #333049 41.81%, #4b6054 157.53%);
   --gambar2: linear-gradient(270.03deg, #535456 -18.57%, #00152d 96.63%);
-  --gambar2-reverse: linear-gradient(
-    270.03deg,
-    #00152d -18.57%,
-    #535456 96.63%
-  );
+  --gambar2Reverse: linear-gradient(270.03deg, #00152d -18.57%, #535456 96.63%);
   --gambar3: linear-gradient(270.03deg, #20a4dd -18.57%, #263345 96.63%);
-  --gambar3-reverse: linear-gradient(
-    270.03deg,
-    #263345 -18.57%,
-    #20a4dd 96.63%
-  );
+  --gambar3Reverse: linear-gradient(270.03deg, #263345 -18.57%, #20a4dd 96.63%);
   --gambar4: linear-gradient(270.03deg, #6a7494 -18.57%, #14506c 96.63%);
-  --gambar4-reverse: linear-gradient(
-    270.03deg,
-    #14506c -18.57%,
-    #6a7494 96.63%
-  );
+  --gambar4Reverse: linear-gradient(270.03deg, #14506c -18.57%, #6a7494 96.63%);
 }
 
 * {
@@ -38,15 +26,23 @@ body {
   background-color: #fff;
 }
 
-main {
-  background-image: var(--gambar2);
-  position: relative;
-}
-
 main,
 .navbar,
 footer {
-  transition: background-color 1 ease;
+  background-position: center;
+  transition: all 1s ease-in;
+}
+main.hidden,
+.navbar.hidden {
+  background-position: -98vw;
+}
+footer.hidden {
+  background-position: 98vw;
+}
+
+main {
+  background-image: var(--gambar2);
+  position: relative;
 }
 
 .navbar {
@@ -63,18 +59,22 @@ footer {
   z-index: 9999;
 }
 .navbar .name-nav {
+  z-index: 1;
   color: #fff;
   font-size: 40px;
 }
 .navbar .name-nav span {
+  z-index: 1;
   font-size: 20px;
 }
 .navbar .navbar-nav {
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 26px;
 }
 .navbar .navbar-extra {
+  z-index: 1;
   display: none;
 }
 .navbar a {
@@ -277,18 +277,15 @@ footer .footer-adder .footer-sosmed .bg-white {
 
 /* footer */
 footer {
+  position: relative;
   display: flex;
   justify-content: space-between;
   padding: 1.9rem 7%;
-  background-image: linear-gradient(
-    270deg,
-    #01152d 41.81%,
-    rgba(0, 0, 0, 0) 157.53%
-  );
+  background-image: var(--gambar2Reverse);
 }
 footer .footer-content {
+  z-index: 1;
   text-shadow: 0px 0px 2px black;
-
   display: flex;
   gap: 10%;
 }
@@ -360,6 +357,7 @@ footer .footer-content .left-footer .email-footer .logo-email .right {
 }
 footer .footer-adder,
 footer .footer-sosmed {
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: end;
@@ -434,6 +432,13 @@ footer .footer-adder {
 @media (max-width: 768px) {
   html {
     font-size: 60.5%;
+  }
+  main.hidden,
+  .navbar.hidden {
+    background-position: -97vw;
+  }
+  footer.hidden {
+    background-position: 97vw;
   }
   .navbar .navbar-nav {
     position: absolute;
@@ -539,6 +544,13 @@ footer .footer-adder {
 @media (max-width: 450px) {
   html {
     font-size: 48%;
+  }
+  main.hidden,
+  .navbar.hidden {
+    background-position: -96vw;
+  }
+  footer.hidden {
+    background-position: 96vw;
   }
   .navbar .name-nav {
     font-size: 4rem;

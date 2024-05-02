@@ -13,7 +13,7 @@ document.addEventListener("click", function (e) {
     : 0;
 });
 
-// ketika gambar diklik maka akan mengganti gambar profile
+// ketika gambar diklik maka akan mengganti gambar profile dan background main .navbar dan footer
 const main = document.querySelector("main");
 const navbar = document.querySelector(".navbar");
 const footer = document.querySelector("footer");
@@ -23,45 +23,52 @@ allImages.forEach((e) =>
   e.addEventListener("click", function () {
     if (e.src !== profile.src) {
       profile.classList.add("hidden");
+      main.classList.add("hidden");
+      navbar.classList.add("hidden");
+      footer.classList.add("hidden");
       setTimeout(() => {
         profile.classList.remove("hidden");
+        main.classList.remove("hidden");
+        navbar.classList.remove("hidden");
+        footer.classList.remove("hidden");
         profile.src = this.src;
+
         if (this.classList.contains("gambar1")) {
-          main.style.background = gambar1;
-          navbar.style.background = gambar1;
-          footer.style.background = gambar1Reverse;
+          main.style.backgroundImage = gambar1;
+          navbar.style.backgroundImage = gambar1;
+          footer.style.backgroundImage = gambar1Reverse;
         } else if (this.classList.contains("gambar2")) {
-          main.style.background = gambar2;
-          navbar.style.background = gambar2;
-          footer.style.background = gambar2Reverse;
+          main.style.backgroundImage = gambar2;
+          navbar.style.backgroundImage = gambar2;
+          footer.style.backgroundImage = gambar2Reverse;
         } else if (this.classList.contains("gambar3")) {
-          main.style.background = gambar3;
-          navbar.style.background = gambar3;
-          footer.style.background = gambar3Reverse;
+          main.style.backgroundImage = gambar3;
+          navbar.style.backgroundImage = gambar3;
+          footer.style.backgroundImage = gambar3Reverse;
         } else if (this.classList.contains("gambar4")) {
-          main.style.background = gambar4;
-          navbar.style.background = gambar4;
-          footer.style.background = gambar4Reverse;
+          main.style.backgroundImage = gambar4;
+          navbar.style.backgroundImage = gambar4;
+          footer.style.backgroundImage = gambar4Reverse;
         }
       }, 1000);
     }
   })
 );
 
-// ketika gambar diklik maka akan mengganti background color dari main dan footer
+// variabel warna pada root
 const root = document.documentElement;
 const gambar1 = getComputedStyle(root).getPropertyValue("--gambar1");
 const gambar1Reverse =
-  getComputedStyle(root).getPropertyValue("--gambar1-reverse");
+  getComputedStyle(root).getPropertyValue("--gambar1Reverse");
 const gambar2 = getComputedStyle(root).getPropertyValue("--gambar2");
 const gambar2Reverse =
-  getComputedStyle(root).getPropertyValue("--gambar2-reverse");
+  getComputedStyle(root).getPropertyValue("--gambar2Reverse");
 const gambar3 = getComputedStyle(root).getPropertyValue("--gambar3");
 const gambar3Reverse =
-  getComputedStyle(root).getPropertyValue("--gambar3-reverse");
+  getComputedStyle(root).getPropertyValue("--gambar3Reverse");
 const gambar4 = getComputedStyle(root).getPropertyValue("--gambar4");
 const gambar4Reverse =
-  getComputedStyle(root).getPropertyValue("--gambar4-reverse");
+  getComputedStyle(root).getPropertyValue("--gambar4Reverse");
 
 // animasi gambar ketika diload tidak dijalankan
 allImages.forEach((e) =>
