@@ -19,6 +19,7 @@ const navbar = document.querySelector(".navbar");
 const footer = document.querySelector("footer");
 const allImages = document.querySelectorAll(".gambar");
 const profile = document.querySelector(".profile");
+
 allImages.forEach((e) =>
   e.addEventListener("click", function () {
     if (e.src !== profile.src) {
